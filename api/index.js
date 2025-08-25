@@ -32,8 +32,8 @@ app.use(express.json());
 // 7. Definição das rotas (Endpoints)
 
 // Rota de teste
-app.get("/", (req, res) => {
-  res.send("Servidor Node.js está rodando e conectado ao Firebase!");
+app.get('/', (req, res) => {
+  res.send('Olá! O servidor está funcionando.');
 });
 
 // Rota para adicionar um novo equipamento (Versão corrigida e única)
