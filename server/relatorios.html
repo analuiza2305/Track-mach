@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central de Relatórios</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="sidebar-overlay"></div>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <img src="porto2.png" alt="Logo da Empresa">
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="index.html"><i class="bi bi-grid-1x2-fill"></i> <span>Dashboard</span></a></li>
+                    <li><a href="cadastro-equipamento.html"><i class="bi bi-tools"></i> <span>Equipamentos</span></a>
+                    </li>
+                    <li><a href="relatorios.html"><i class="bi bi-file-earmark-bar-graph-fill"></i>
+                            <span>Relatório</span></a></li>
+                    <li><a href="cadastro-gestor.html"><i class="bi bi-gear-fill"></i> <span>Configurações</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <header class="header">
+            <div class="header-left">
+                <button id="hamburger-menu" class="hamburger" title="Abrir menu">
+                    <i class="bi bi-list"></i>
+                </button>
+            </div>
+            <div class="header-right">
+                <button id="theme-toggle-button" class="theme-toggle" title="Alternar tema">
+                    <i class="bi bi-moon-fill"></i>
+                </button>
+                <a href="cadastro-gestor.html" class="user-profile-link">
+                    <div class="user-profile">
+                        <span id="nomeGestor">Olá, Gestor(a)!</span>
+                        <i class="bi bi-person-circle"></i>
+                    </div>
+                </a>
+            </div>
+        </header>
+
+        <main class="dashboard-content">
+            <h1 class="page-title">Central de Relatórios</h1>
+
+            <div class="widget">
+                <h3 class="widget-title">Gerar Novo Relatório</h3>
+                <form class="form-container">
+                    <div class="form-grid" style="grid-template-columns: 2fr 1fr 1fr;">
+                        <div class="form-group">
+                            <label for="tipo-relatorio">Tipo de Relatório</label>
+                            <select id="tipo-relatorio" class="form-select">
+                                <option>Histórico de Manutenções</option>
+                                <option>Desempenho Geral por Equipamento</option>
+                                <option>Inventário Completo</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="data-inicio">Data de Início</label>
+                            <input type="date" id="data-inicio" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="data-fim">Data de Fim</label>
+                            <input type="date" id="data-fim" class="form-input">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-search"></i> Gerar Relatório
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="table-widget">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h3 class="widget-title">Equipamentos Cadastrados</h3>
+                    <button class="btn btn-export">
+                        <i class="bi bi-file-earmark-arrow-down-fill"></i> Exportar
+                    </button>
+                </div>
+                <div class="registered-equipments" id="lista-equipamentos-container">
+                    <table class="tabela-equipamentos">
+                        <thead>
+                            <tr>
+                                <th>Nome do equipamento</th>
+                                <th>ID</th>
+                                <th>Localização</th>
+                            </tr>
+                        </thead>
+                        <tbody id="equipamentos-table-body">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

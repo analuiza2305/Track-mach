@@ -1,0 +1,988 @@
+:root {
+    --cor-fundo-pagina: #99c5ff;
+    --cor-fundo-navbar: #13325b;
+    --cor-fundo-header: #00357a;
+    --cor-fundo-widgets: #f8f6f6;
+    --cor-card-verde-bg: #04383f;
+    --cor-card-verde-letra: #99c5ff;
+    --cor-card-amarelo-bg: #ffd230;
+    --cor-card-amarelo-letra: #00357a;
+    --cor-card-azul-bg: #00357a;
+    --cor-card-azul-letra: #99c5ff;
+    --cor-vermelho-alerta: #ff3131;
+    --cor-amarelo-alerta: #ffd230;
+    --cor-verde-ok: #198754;
+    --fonte-numeros: 'Raleway', sans-serif;
+    --fonte-letras: 'Poppins', sans-serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--cor-fundo-pagina);
+    font-family: var(--fonte-letras);
+    display: flex;
+    /* <-- CORRIGIR/MELHORAR ESTE PONTO */
+    height: 100vh;
+}
+
+.main-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+/* --- ESTRUTURA PRINCIPAL (SIDEBAR, HEADER, CONTENT) --- */
+
+.sidebar {
+    background-color: var(--cor-fundo-navbar);
+    width: 260px;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+.sidebar-header {
+    margin-bottom: 3rem;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+.logo img {
+    max-height: 60px;
+    width: auto;
+}
+.logo i {
+    font-size: 2.5rem;
+    color: var(--cor-fundo-pagina);
+}
+.welcome-text {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.nav-menu li a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.nav-menu li.active a,
+.nav-menu li a:hover {
+    background-color: var(--cor-fundo-header);
+}
+
+.nav-menu li a i {
+    font-size: 1.5rem;
+}
+
+.header {
+    background-color: var(--cor-fundo-header);
+    padding: 1.5rem 2.5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #ffffff;
+}
+
+.user-profile i {
+    font-size: 2.5rem;
+    background-color: #ffffff;
+    color: var(--cor-fundo-header);
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.user-profile-link {
+    text-decoration: none;
+    color: inherit;
+}
+.dashboard-content {
+    background-color: var(--cor-fundo-widgets);
+    margin: 20px;
+    border-radius: 30px;
+    padding: 2rem;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+.page-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 2rem;
+    font-family: var(--fonte-numeros);
+}
+/* --- WIDGETS E COMPONENTES GERAIS --- */
+.widget {
+    background-color: #ffffff;
+    padding: 1.5rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-top: 2rem;
+}
+
+.widget-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+/* --- ESTILOS DA PÁGINA INICIAL (INDEX.HTML) --- */
+.metric-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+.card {
+    padding: 1.5rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+.card {
+    padding: 1.5rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+.card .card-number {
+    font-family: var(--fonte-numeros);
+    font-size: 3.5rem;
+    font-weight: 900;
+}
+
+.card .card-number .unit {
+    font-family: var(--fonte-letras);
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.card .card-text {
+    font-size: 1rem;
+}
+
+.card-green {
+    background-color: var(--cor-card-verde-bg);
+    color: var(--cor-card-verde-letra);
+    gap: 0;
+}
+
+.card-yellow {
+    background-color: var(--cor-card-amarelo-bg);
+    color: var(--cor-card-amarelo-letra);
+}
+
+.card-blue {
+    background-color: var(--cor-card-azul-bg);
+    color: var(--cor-card-azul-letra);
+}
+.info-widgets {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.status-list {
+    gap: rem;
+}
+
+.status-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.status-bar {
+    height: 10px;
+}
+
+.status-ok .status-bar {
+    background-color: var(--cor-verde-ok);
+}
+
+.status-soon .status-bar {
+    background-color: var(--cor-amarelo-alerta);
+}
+
+.status-needed .status-bar {
+    background-color: var(--cor-vermelho-alerta);
+}
+.performance-chart {
+    display: auto;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: auto;
+    width: 100%;
+}
+
+.chart-bar {
+    width: 40px;
+    background-color: var(--cor-fundo-pagina);
+    border-radius: 8px 8px 0 0;
+    display: auto;
+    height: auto;
+}
+
+.chart-bar.main {
+    background-color: var(--cor-fundo-header);
+}
+
+.table-widget {
+    margin-top: 2rem;
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.registered-equipments table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 1rem;
+}
+
+.registered-equipments th {
+    text-align: left;
+    padding: 0 1rem 0.5rem 1rem;
+    color: #888;
+    font-weight: 500;
+    border-bottom: 2px solid #eee;
+}
+
+.registered-equipments td {
+    text-align: left;
+    padding: 1rem;
+    vertical-align: middle;
+    background-color: var(--cor-fundo-widgets);
+}
+
+.registered-equipments tr:last-child td {
+    border-bottom: none;
+}
+
+.registered-equipments td:first-child {
+    border-radius: 10px 0 0 10px;
+}
+
+.registered-equipments td:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dot-ok {
+    background-color: var(--cor-verde-ok);
+}
+
+.dot-soon {
+    background-color: var(--cor-amarelo-alerta);
+}
+
+.dot-needed {
+    background-color: var(--cor-vermelho-alerta);
+}
+/* --- ESTILOS PARA FORMULÁRIOS (CADASTROS E RELATÓRIOS) --- */
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: #555;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: var(--fonte-letras);
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--cor-fundo-header);
+    box-shadow: 0 0 0 3px rgba(0, 53, 122, 0.2);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn {
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+.btn-primary {
+    background-color: var(--cor-fundo-header);
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #ccc;
+    color: #333;
+}
+
+.btn-export {
+    background-color: var(--cor-verde-ok);
+    color: white;
+}
+
+.btn-danger {
+    background-color: var(--cor-vermelho-alerta);
+    color: white;
+}
+/* --- PÁGINA DE PERFIL --- */
+
+.profile-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-top: 1rem;
+}
+
+.profile-role {
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: -5px;
+}
+
+.profile-picture {
+    position: relative;
+    cursor: pointer;
+}
+
+.profile-picture-overlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--cor-fundo-header);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    border: 3px solid white;
+    transition: transform 0.3s ease;
+}
+
+.profile-picture:hover .profile-picture-overlay {
+    transform: scale(1.1);
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+.input-group .form-input {
+    padding-left: 45px;
+}
+/* --- PÁGINAS DE LOGIN E CADASTRO --- */
+
+.auth-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, var(--cor-fundo-navbar), var(--cor-fundo-header));
+}
+
+.auth-container {
+    padding: 20px;
+}
+
+.auth-box {
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    padding: 2.5rem 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.auth-logo {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.auth-logo img {
+    max-height: 70px;
+}
+
+.auth-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.auth-box .form-group {
+    margin-bottom: 1.25rem;
+}
+
+.auth-box .form-group label {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.form-options {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
+}
+
+.forgot-password {
+    font-size: 0.9rem;
+    color: var(--cor-fundo-header);
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.auth-footer a {
+    color: var(--cor-fundo-header);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+/* ================================================= */
+
+/* ============ BOTÃO DE TEMA (DARK MODE) ========== */
+
+/* ================================================= */
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ================================================= */
+
+/* ==== DARK MODE CONTROLADO POR CLASSE (.dark-mode) ===== */
+
+/* ================================================= */
+
+body.dark-mode {
+    --cor-fundo-pagina: #1a202c;
+    --cor-fundo-navbar: #121822;
+    --cor-fundo-header: #121822;
+    --cor-fundo-widgets: #1f2937;
+    --cor-btn-secondary-bg: #4a5568;
+    --cor-btn-secondary-letra: #e2e8f0;
+    --cor-input-border: #4a5568;
+}
+body.dark-mode .sidebar,
+body.dark-mode .user-profile {
+    color: #e2e8f0;
+}
+
+body.dark-mode .nav-menu li a {
+    color: #e2e8f0;
+}
+
+body.dark-mode .nav-menu li.active a,
+body.dark-mode .nav-menu li a:hover {
+    background-color: #00357a;
+}
+body.dark-mode .user-profile i {
+    background-color: #e2e8f0;
+    color: #1f2937;
+}
+
+body.dark-mode .page-title,
+body.dark-mode .widget-title {
+    color: #f7fafc;
+
+}
+
+body.dark-mode .widget,
+body.dark-mode .table-widget,
+body.dark-mode .auth-box {
+    background-color: var(--cor-fundo-widgets);
+    box-shadow: none;
+    border: 1px solid #374151;
+}
+body.dark-mode .registered-equipments th {
+    color: #a0aec0;
+    border-bottom: 2px solid #374151;
+}
+body.dark-mode .registered-equipments td {
+    background-color: #2d3748;
+    color: #e2e8f0;
+}
+body.dark-mode .form-group label,
+body.dark-mode .profile-name,
+body.dark-mode .auth-title,
+body.dark-mode .auth-footer {
+    color: #cbd5e0;
+}
+body.dark-mode .profile-role {
+    color: #a0aec0;
+}
+
+body.dark-mode .form-input,
+body.dark-mode .form-select,
+body.dark-mode .form-textarea {
+    background-color: #2d3748;
+    border-color: var(--cor-input-border);
+    color: #e2e8f0;
+}
+body.dark-mode .form-input:focus,
+body.dark-mode .form-select:focus,
+body.dark-mode .form-textarea:focus {
+    border-color: #99c5ff;
+    box-shadow: 0 0 0 3px rgba(153, 197, 255, 0.3);
+}
+body.dark-mode .input-group i {
+    color: #718096;
+}
+body.dark-mode .btn-secondary {
+    background-color: var(--cor-btn-secondary-bg);
+    color: var(--cor-btn-secondary-letra);
+}
+body.dark-mode .auth-footer a,
+body.dark-mode .forgot-password {
+    color: #99c5ff;
+}
+/* =============================================================== */
+/* ==== NOVOS AJUSTES FINOS DE COR (SOLICITADO AGORA) ==== */
+/* =============================================================== */
+/* Deixa os títulos e labels específicos com a cor branca */
+body.dark-mode .form-section-title,
+body.dark-mode .status-item label,
+body.dark-mode .status-indicator span {
+    color: #ffffff;
+}
+/* Altera as cores do gráfico para tons de azure/azul claro */
+body.dark-mode .chart-bar {
+    background-color: #5F9EA0;
+    /* Tom de azure 'CadetBlue' */
+}
+body.dark-mode .chart-bar.main {
+    background-color: #87CEEB;
+    /* Tom de azure 'SkyBlue' */
+}
+/* =============================================================== */
+/* =================== CSS PARA RESPONSIVIDADE =================== */
+/* =============================================================== */
+/* --- Ícone do Menu Hambúrguer --- */
+.hamburger {
+    display: none;
+    /* Escondido por padrão em telas grandes */
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 2.2rem;
+    /* Ícone maior para toque */
+    cursor: pointer;
+    z-index: 1001;
+    /* Garante que fique acima de outros elementos */
+}
+/* Reorganiza o header para o layout responsivo */
+.header {
+    display: flex;
+    justify-content: space-between;
+    /* Alinha itens nas extremidades */
+    width: 100%;
+}
+.header-left,
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+/* Estilo para as células da tabela */
+.table-widget td,
+.table-widget th {
+    padding: 12px 15px;
+    /* Adiciona espaçamento interno */
+    text-align: left;
+    /* Garante alinhamento à esquerda */
+    border-bottom: 1px solid var(--border-color);
+    /* Adiciona uma linha divisória discreta */
+}
+/* Estilo para o contêiner do status para alinhar texto e bolinha */
+.status-indicator {
+    display: flex;
+    align-items: center;
+    /* Alinha os itens verticalmente no centro */
+}
+/* Estilo para a bolinha do status */
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-left: 8px;
+    /* Adiciona espaçamento entre o texto e a bolinha */
+    flex-shrink: 0;
+    /* Impede que a bolinha encolha em telas menores */
+}
+/* Cores das bolinhas */
+.status-dot.dot-ok {
+    background-color: var(--color-green);
+}
+.status-dot.dot-warning {
+    background-color: var(--color-yellow);
+}
+.status-dot.dot-danger {
+    background-color: var(--color-red);
+}
+/* Estilo para as bolinhas do status */
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-left: 8px;
+    /* Adiciona espaçamento entre o texto e a bolinha */
+    flex-shrink: 0;
+    /* Impede que a bolinha encolha em telas menores */
+}
+/* Cores das bolinhas */
+.status-dot.dot-ok {
+    background-color: var(--color-green);
+}
+.status-dot.dot-warning {
+    background-color: var(--color-yellow);
+}
+.status-dot.dot-danger {
+    background-color: var(--color-red);
+}
+/* --- Estilos para telas menores (Tablets e Celulares) --- */
+@media (max-width: 992px) {
+    body {
+        /* Remove o display:flex do body para o layout empilhar */
+        display: block;
+    }
+
+    .sidebar {
+        /* Garante que a sidebar está fixa e escondida */
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 260px;
+        z-index: 1000;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .sidebar.sidebar-open {
+        /* ESTA REGRA É CRÍTICA: MOVE PARA A TELA */
+        transform: translateX(0);
+    }
+
+    .hamburger {
+        display: block;
+        /* Mostra o ícone do menu em telas menores */
+    }
+
+    .main-container {
+        margin-left: 0;
+    }
+
+    .header {
+        padding: 1rem 1.5rem;
+        /* Menor padding no header */
+    }
+
+    .dashboard-content {
+        margin: 15px;
+        padding: 1.5rem;
+    }
+
+    /* Empilha os cards de métricas */
+    .metric-cards {
+        grid-template-columns: 1fr;
+        /* Um card por linha */
+        gap: 1.5rem;
+    }
+
+    /* AJUSTE: Reduz a fonte dos cards para telas menores */
+    .metric-cards .card-number {
+        font-size: 2.5rem;
+    }
+
+    .metric-cards .card-text {
+        font-size: 0.9rem;
+    }
+
+    /* Empilha os widgets de informação */
+    .info-widgets {
+        display: grid;
+        grid-template-columns: 21rem;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    /* Ajusta a barra de status na responsividade */
+    .status-list {
+        gap: 1rem;
+    }
+
+    .status-bar {
+        height: 15px;
+    }
+
+    /* Remove os estilos do gráfico de barras estático */
+    .performance-chart,
+    .chart-bar {
+        display: block;
+        height: auto;
+    }
+}
+
+/* Ajustes finos para telas de celular */
+
+@media (max-width: 576px) {
+
+    .user-profile span {
+
+        display: none;
+        /* Esconde o "Olá, Gestor(a)!" em telas muito pequenas */
+
+    }
+    .page-title {
+
+        font-size: 1.5rem;
+
+    }
+
+}
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    /* DEVE SER MENOR QUE Z-INDEX DA SIDEBAR (1000) */
+}
+.sidebar-overlay.active {
+
+    display: block;
+
+}
+
+/* =============================================================== */
+
+/* =========== CSS RESPONSIVO PARA PÁGINA DE RELATÓRIOS ========== */
+
+/* =============================================================== */
+@media (max-width: 768px) {
+    /* --- Ajuste no formulário de geração de relatório --- */
+    .form-grid[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        /* Força uma coluna única no formulário */
+    }
+    /* --- Transforma a tabela em um layout de "cartões" --- */
+    .registered-equipments table,
+    .registered-equipments thead,
+    .registered-equipments tbody,
+    .registered-equipments th,
+    .registered-equipments td,
+    .registered-equipments tr {
+        display: block;
+        /* Transforma todos os elementos da tabela em blocos */
+    }
+    /* Esconde o cabeçalho da tabela (vamos usar labels em cada célula) */
+    .registered-equipments thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    .registered-equipments tr {
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+        background-color: #ffffff;
+    }
+    body.dark-mode .registered-equipments tr {
+        border-color: #374151;
+        background-color: var(--cor-fundo-widgets);
+    }
+    .registered-equipments td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        /* Espaço para o label */
+        text-align: right;
+        /* Alinha o conteúdo à direita */
+        background-color: transparent;
+        /* Remove a cor de fundo individual das células */
+    }
+    body.dark-mode .registered-equipments td {
+        border-bottom: 1px solid #374151;
+    }
+    .registered-equipments td:last-child {
+        border-bottom: 0;
+    }
+    /* Adiciona os labels (títulos das colunas) antes de cada célula */
+    .registered-equipments td:before {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: 600;
+        color: #333;
+    }
+    body.dark-mode .registered-equipments td:before {
+        color: #f7fafc;
+    }
+    /* Conteúdo dos labels */
+    .registered-equipments td:nth-of-type(1):before {
+        content: "Equipamento";
+    }
+
+    .registered-equipments td:nth-of-type(2):before {
+        content: "Data";
+    }
+
+    .registered-equipments td:nth-of-type(3):before {
+        content: "Tipo";
+    }
+
+    .registered-equipments td:nth-of-type(4):before {
+        content: "Técnico";
+    }
+
+    .registered-equipments td:nth-of-type(5):before {
+        content: "Status";
+    }
+    /* Centraliza o indicador de status */
+    .registered-equipments .status-indicator {
+        justify-content: flex-end;
+    }
+}

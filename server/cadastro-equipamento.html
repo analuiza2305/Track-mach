@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Equipamento</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="sidebar-overlay"></div>
+    <nav class="sidebar">
+
+        <div class="sidebar-header">
+            <div class="logo">
+                <img src="porto2.png" alt="Logo da Empresa">
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="index.html"><i class="bi bi-grid-1x2-fill"></i> <span>Dashboard</span></a></li>
+                    <li><a href="cadastro-equipamento.html"><i class="bi bi-tools"></i> <span>Equipamentos</span></a>
+                    </li>
+                    <li><a href="relatorios.html"><i class="bi bi-file-earmark-bar-graph-fill"></i>
+                            <span>Relatório</span></a></li>
+                    <li><a href="cadastro-gestor.html"><i class="bi bi-gear-fill"></i> <span>Configurações</span></a>
+                    </li>
+                </ul>
+            </div>
+    </nav>
+    <div class="main-container">
+        <header class="header">
+            <div class="header-left">
+                <button id="hamburger-menu" class="hamburger" title="Abrir menu">
+                    <i class="bi bi-list"></i>
+                </button>
+            </div>
+            <div class="header-right">
+                <button id="theme-toggle-button" class="theme-toggle" title="Alternar tema">
+                    <i class="bi bi-moon-fill"></i>
+                </button>
+
+                <a href="cadastro-gestor.html" class="user-profile-link">
+                    <div class="user-profile">
+                        <span id="nomeGestor">Olá, Gestor(a)!</span>
+                        <i class="bi bi-person-circle"></i>
+                    </div>
+                </a>
+            </div>
+        </header>
+        <main class="dashboard-content">
+            <h1 class="page-title">Cadastro de Equipamento</h1>
+            <div class="widget">
+                <form class="form-container" id="cadastroForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nome-equipamento">Nome do Equipamento</label>
+                            <input type="text" id="nomeEquipamento" class="form-input" placeholder="Ex: Torno CNC-150">
+                        </div>
+                        <div class="form-group">
+                            <label for="id-equipamento">Nº de Série / ID</label>
+                            <input type="text" id="id-equipamento" class="form-input" placeholder="Ex: 987-XYZ-654">
+                        </div>
+                        <div class="form-group">
+                            <label for="fabricante">Fabricante</label>
+                            <input type="text" id="fabricante" class="form-input" placeholder="Ex: Indústrias ACME">
+                        </div>
+                        <div class="form-group">
+                            <label for="modelo">Modelo</label>
+                            <input type="text" id="modelo" class="form-input" placeholder="Ex: Mark II">
+                        </div>
+                        <div class="form-group">
+                            <label for="localizacao">Localização</label>
+                            <input type="text" id="localizacao" class="form-input" placeholder="Ex: Setor A-05">
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Status Inicial</label>
+                            <select id="status" class="form-select">
+                                <option value="ok">OK</option>
+                                <option value="breve">Manutenção em Breve</option>
+                                <option value="necessaria">Manutenção Necessária</option>
+                                <option value="inativo">Inativo</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="horasOperacao">Horas de Operação</label>
+                            <input type="number" id="horasOperacao" class="form-input" placeholder="Ex: 500">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="descricao">Descrição / Observações</label>
+                        <textarea id="descricao" class="form-textarea" rows="4"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Cadastrar Equipamento</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
