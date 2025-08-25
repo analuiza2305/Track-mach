@@ -236,5 +236,9 @@ app.get("/api/equipamentos/status", async (req, res) => {
   }
 });
 
+app.get("/api", (req, res) => {
+  res.send("API online!");
+});D
+
 // Exporta o aplicativo Express para ser usado pela Vercel
 module.exports = app;
