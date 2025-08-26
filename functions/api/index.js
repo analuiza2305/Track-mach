@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 // 1. Importa as bibliotecas necessárias para o projeto
 const express = require("express");
 const admin = require("firebase-admin");
@@ -7,9 +9,7 @@ const cors = require("cors");
 //    A Vercel armazena a sua chave em uma variável de ambiente,
 //    e é o jeito mais seguro de usá-la.
 try {
-  admin.initializeApp({
-    credential: admin.credential.cert(JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT)),
-  });
+  admin.initializeApp();
 } catch (error) {
   console.error("Erro ao inicializar o Firebase Admin SDK:", error);
 }
@@ -37,8 +37,8 @@ app.post("/api/equipamentos", async (req, res) => {
     const novoEquipamento = req.body;
     if (!novoEquipamento.nome || !novoEquipamento.localizacao) {
       return res
-        .status(400)
-        .send({ error: "Nome e localização são obrigatórios." });
+          .status(400)
+          .send({error: "Nome e localização são obrigatórios."});
     }
 
     if (!novoEquipamento.status) {
@@ -53,7 +53,7 @@ app.post("/api/equipamentos", async (req, res) => {
     });
   } catch (error) {
     console.error("Erro ao adicionar equipamento:", error);
-    res.status(500).send({ error: "Erro ao processar a requisição." });
+    res.status(500).send({error: "Erro ao processar a requisição."});
   }
 });
 
@@ -75,8 +75,8 @@ app.get("/api/equipamentos", async (req, res) => {
   } catch (error) {
     console.error("Erro ao buscar equipamentos:", error);
     res
-      .status(500)
-      .json({ message: "Erro interno do servidor ao buscar dados." });
+        .status(500)
+        .json({message: "Erro interno do servidor ao buscar dados."});
   }
 });
 
@@ -115,9 +115,9 @@ app.get("/api/dashboard/stats", async (req, res) => {
     });
 
     const tempoMedioOperacao =
-      totalEquipamentos > 0
-        ? Math.round(totalHorasOperacao / totalEquipamentos)
-        : 0;
+      totalEquipamentos > 0 ?
+        Math.round(totalHorasOperacao / totalEquipamentos) :
+        0;
 
     res.status(200).send({
       totalEquipamentos: totalEquipamentos,
@@ -126,7 +126,7 @@ app.get("/api/dashboard/stats", async (req, res) => {
     });
   } catch (error) {
     console.error("Erro ao obter estatísticas do dashboard:", error);
-    res.status(500).send({ error: "Erro ao obter estatísticas do dashboard." });
+    res.status(500).send({error: "Erro ao obter estatísticas do dashboard."});
   }
 });
 
@@ -136,7 +136,7 @@ app.get("/api/gestor/nome", async (req, res) => {
     const usersRef = db.collection("users");
     const snapshot = await usersRef.get();
     if (snapshot.empty) {
-      return res.status(404).send({ error: "Nenhum usuário encontrado." });
+      return res.status(404).send({error: "Nenhum usuário encontrado."});
     }
     const userData = snapshot.docs[0].data();
     const nome = userData.nome || "Gestor(a)";
@@ -148,17 +148,17 @@ app.get("/api/gestor/nome", async (req, res) => {
     });
   } catch (error) {
     console.error("Erro ao obter nome do gestor:", error);
-    res.status(500).send({ error: "Erro ao obter nome do gestor." });
+    res.status(500).send({error: "Erro ao obter nome do gestor."});
   }
 });
 
 // Rota para atualizar os dados de um gestor
 app.put("/api/gestor/atualizar", async (req, res) => {
   try {
-    const { gestorId, nome, email, funcao, telefone } = req.body;
+    const {gestorId, nome, email, funcao, telefone} = req.body;
 
     if (!gestorId) {
-      return res.status(400).send({ error: "ID do gestor não fornecido." });
+      return res.status(400).send({error: "ID do gestor não fornecido."});
     }
 
     const gestorRef = db.collection("users").doc(gestorId);
@@ -171,18 +171,18 @@ app.put("/api/gestor/atualizar", async (req, res) => {
 
     if (Object.keys(dadosParaAtualizar).length === 0) {
       return res
-        .status(400)
-        .send({ error: "Nenhum dado fornecido para atualização." });
+          .status(400)
+          .send({error: "Nenhum dado fornecido para atualização."});
     }
 
     await gestorRef.update(dadosParaAtualizar);
 
     res
-      .status(200)
-      .send({ message: "Dados do gestor atualizados com sucesso!" });
+        .status(200)
+        .send({message: "Dados do gestor atualizados com sucesso!"});
   } catch (error) {
     console.error("Erro ao atualizar os dados do gestor:", error);
-    res.status(500).send({ error: "Erro ao atualizar os dados do gestor." });
+    res.status(500).send({error: "Erro ao atualizar os dados do gestor."});
   }
 });
 
@@ -206,7 +206,7 @@ app.get("/api/equipamentos/listar", async (req, res) => {
     res.status(200).send(equipamentos);
   } catch (error) {
     console.error("Erro ao obter a lista de equipamentos:", error);
-    res.status(500).send({ error: "Erro ao obter a lista de equipamentos." });
+    res.status(500).send({error: "Erro ao obter a lista de equipamentos."});
   }
 });
 
@@ -232,13 +232,13 @@ app.get("/api/equipamentos/status", async (req, res) => {
     res.status(200).send(statusCounts);
   } catch (error) {
     console.error("Erro ao obter a contagem de status:", error);
-    res.status(500).send({ error: "Erro ao obter a contagem de status." });
+    res.status(500).send({error: "Erro ao obter a contagem de status."});
   }
 });
 
 app.get("/api", (req, res) => {
   res.send("API online!");
-});D
+});
 
 // Exporta o aplicativo Express para ser usado pela Vercel
 module.exports = app;

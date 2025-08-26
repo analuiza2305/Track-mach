@@ -1,4 +1,9 @@
 // --- FUNÇÕES GLOBAIS ---
+// Em produção, deixe vazio; no emulador também funciona relativo
+const API_BASE = "";
+
+// exemplo de chamada:
+const resp = await fetch(`${API_BASE}/api/gestor/nome`);
 
 // Função para obter e exibir o nome do gestor no cabeçalho
 async function carregarNomeGestor() {
