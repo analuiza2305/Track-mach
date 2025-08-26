@@ -1,10 +1,14 @@
 require('dotenv').config();
 
 // 1. Importa as bibliotecas necessárias para o projeto
-const express = require("express");
 const admin = require("firebase-admin");
-const cors = require("cors");
+const express = require('express');
+const cors = require('cors');
 
+const app = express();
+app.use(cors({
+  origin: 'https://track-mach.vercel.app' // Está correto!
+}));
 // 2. Inicializa o Firebase Admin SDK usando a variável de ambiente
 //    A Vercel armazena a sua chave em uma variável de ambiente,
 //    e é o jeito mais seguro de usá-la.
