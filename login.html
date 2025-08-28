@@ -1,46 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login - Navinsight</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="style.css" />
     <script type="module" src="auth.js"></script>
-</head>
-<body class="auth-body">
-
+  </head>
+  <body class="auth-body">
     <div class="auth-container">
-        <div class="auth-box">
-            <div class="auth-logo">
-                <img src="porto2.png" alt="Logo da Empresa">
-            </div>
-            
-            <h2 class="auth-title">Acessar Plataforma</h2>
-
-            <form id="login-form">
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" class="form-input" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Senha</label>
-                    <input type="password" id="password" class="form-input" required>
-                </div>
-                <div class="form-options">
-                    <a href="#" class="forgot-password">Esqueceu sua senha?</a>
-                </div>
-                <button type="submit" class="btn btn-primary btn-full">Entrar</button>
-            </form>
-
-            <div class="auth-footer">
-                <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
-            </div>
+      <div class="auth-box">
+        <div class="auth-logo">
+          <img src="porto-2.png" alt="Logo da Empresa" />
         </div>
-    </div>
 
-</body>
+        <h2 class="auth-title">Acessar Plataforma</h2>
+
+        <form id="login-form">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" class="form-input" required />
+          </div>
+          <div class="form-group">
+            <label for="password">Senha</label>
+            <input type="password" id="password" class="form-input" required />
+          </div>
+          <div class="form-options">
+            <a href="#" class="forgot-password">Esqueceu sua senha?</a>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Entrar</button>
+        </form>
+
+        <div class="auth-footer">
+          <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
